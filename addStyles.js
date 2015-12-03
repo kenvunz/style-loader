@@ -229,6 +229,22 @@ function applyToTag(styleElement, obj) {
 function updateLink(linkElement, obj) {
 	var css = obj.css;
 	var sourceMap = obj.sourceMap;
+	var absPrefix = window.location.protocol + '//' + window.location.host;
+
+	css = css
+		.replace(
+			'url(/',
+			'url(' + absPrefix + '/'
+		)
+		.replace(
+			'url(\'/',
+			'url(\'' + absPrefix + '/'
+		)
+		.replace(
+			'url(\"/',
+			'url(\"' + absPrefix + '/'
+		)
+	;
 
 	if(sourceMap) {
 		// http://stackoverflow.com/a/26603875
