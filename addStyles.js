@@ -233,15 +233,15 @@ function updateLink(linkElement, obj) {
 
 	css = css
 		.replace(
-			'url(/',
+			new RegExp('url(/', 'g'),
 			'url(' + absPrefix + '/'
 		)
 		.replace(
-			'url(\'/',
+			new RegExp('url(\'/', 'g'),
 			'url(\'' + absPrefix + '/'
 		)
 		.replace(
-			'url(\"/',
+			new RegExp('url(\"/', 'g'),
 			'url(\"' + absPrefix + '/'
 		)
 	;
